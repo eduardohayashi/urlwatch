@@ -379,4 +379,5 @@ class XPathFilter(FilterBase):
         parser = etree.HTMLParser()
         tree = etree.parse(io.StringIO(data), parser)
         return '\n'.join(etree.tostring(element, pretty_print=True, method='html', encoding='unicode')
+                         if 'ElementUnicodeResult' not in str(type(element)) else element.encode('utf-8').decode()
                          for element in tree.xpath(subfilter))
