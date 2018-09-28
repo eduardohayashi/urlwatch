@@ -84,7 +84,9 @@ class JobState(object):
                         filter_kind, subfilter = key, item[key]
                         data = FilterBase.process(filter_kind, subfilter, self, data)
                 elif isinstance(filter_list, str):
-                    for filter_kind in filter_list.split(','):
+                    for filter_kind in (
+                            filter_list.split(',') if filter_list[:5] != 'xpath'
+                            else [filter_list]):
                         if ':' in filter_kind:
                             filter_kind, subfilter = filter_kind.split(':', 1)
                         else:
