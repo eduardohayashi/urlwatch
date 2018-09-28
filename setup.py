@@ -17,7 +17,7 @@ if sys.version_info < (3, 3):
 m['name'] = 'urlwatch'
 m['author'], m['author_email'] = re.match(r'(.*) <(.*)>', m['author']).groups()
 m['description'], m['long_description'] = docs[0].strip().split('\n\n', 1)
-m['install_requires'] = ['minidb', 'PyYAML', 'requests', 'keyring', 'pycodestyle', 'appdirs', 'lxml']
+m['install_requires'] = ['minidb', 'PyYAML', 'requests', 'keyring==12.0.*', 'pycodestyle', 'appdirs', 'lxml']
 m['scripts'] = ['urlwatch']
 m['package_dir'] = {'': 'lib'}
 m['packages'] = ['urlwatch']
